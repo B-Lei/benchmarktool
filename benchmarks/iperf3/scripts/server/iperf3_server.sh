@@ -30,7 +30,7 @@ function HELP() {
 	echo "${REV}-b or --bandwidth${NORM} --Sets the value for option ${BOLD}n[KM] set target bandwidth to n bits/sec."
 	echo "${REV}-t or --time${NORM} --Sets the value for option ${BOLD}time in seconds to transmit for${NORM}. Default is ${BOLD}10${NORM}."
 	echo "${REV}-n or --bytes${NORM} --Sets the value for option ${BOLD}number of bytes to transmit (instead of -t)."
-	echo "${REV}-k or --blockbount${NORM} --Sets the value for option ${BOLD}number of blocks (packets) to transmit (instead of -t or -n)."
+	echo "${REV}-k or --blockcount${NORM} --Sets the value for option ${BOLD}number of blocks (packets) to transmit (instead of -t or -n)."
 	echo "${REV}-l or --length${NORM} --Sets the value for option ${BOLD}length of buffer to read or write${NORM}. Default is ${BOLD}128K${NORM}."
 	echo "${REV}-P or --parallel${NORM} --Sets the value for option ${BOLD}number of parallel client streams to run."
 	echo "${REV}-R or --reverse${NORM} --Sets the value for option ${BOLD}run in reverse mode (server sends, client receives). 1 to activate${NORM}. Default is ${BOLD}1${NORM}."
@@ -116,7 +116,7 @@ if [ $NUMARGS -eq 0 ]; then
   HELP
 fi
 
-if ! options=$(getopt -o s:c:C:w:u:x:y:hv:p:f:i:f:B:u:b:t:n:k:l:P:R:w: -l server:,webserver:,username:,client:,prefile:,postfile:,help,verbose_count:,port:,format:,interval:,file:,bind:,udp:,bandwidth:,time:,bytes:,blockbount:,length:,parallel:,reverse:,window: -- "$@")
+if ! options=$(getopt -o s:c:C:w:u:x:y:hv:p:f:i:f:B:u:b:t:n:k:l:P:R:w: -l server:,webserver:,username:,client:,prefile:,postfile:,help,verbose_count:,port:,format:,interval:,file:,bind:,udp:,bandwidth:,time:,bytes:,blockcount:,length:,parallel:,reverse:,window: -- "$@")
 then
     exit 1
 fi
@@ -143,7 +143,7 @@ do
 		-b|--bandwidth) BANDWIDTH="${2//\'/}" ; shift;;
 		-t|--time) TIME="${2//\'/}" ; shift;;
 		-n|--bytes) BYTES="${2//\'/}" ; shift;;
-		-k|--blockbount) BLOCKCOUNT="${2//\'/}" ; shift;;
+		-k|--blockcount) BLOCKCOUNT="${2//\'/}" ; shift;;
 		-l|--length) LENGTH="${2//\'/}" ; shift;;
 		-P|--parallel) PARALLEL="${2//\'/}" ; shift;;
 		-R|--reverse) REVERSE="${2//\'/}" ; shift;;
