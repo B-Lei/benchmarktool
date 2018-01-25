@@ -1,1 +1,1 @@
-sysbench-mysql,coremark,Nginx,memcached,lmbench-mem,lmbench-stream,sysbench-fio,iperf,multichase,fairness,specint
+sysbench-mysql,coremark,Nginx,memcached,lmbench-mem,lmbench-stream,sysbench-fio,iperf,multichase,fairness,specint,iperf3
